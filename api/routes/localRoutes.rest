@@ -1,0 +1,29 @@
+GET http://localhost:8000/movies
+
+###
+
+GET http://localhost:8000/movies/62f7a7e8a2c5d49d9ad02013
+
+###
+
+POST http://localhost:8000/movies
+Content-Type: application/json
+
+{
+    "name": "Deadpool",
+    "genre": "Comedy"
+}
+
+###
+
+DELETE http://localhost:8000/movies/62f94bbbfb9bc1ff778d5f83
+
+###
+
+PATCH http://localhost:8000/movies/62f94bbbfb9bc1ff778d5f81
+Content-Type: application/json
+
+{
+    "name": "Deadpool 2",
+    "genre": "Comedy"
+}
