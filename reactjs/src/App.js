@@ -23,6 +23,7 @@ function App() {
   }, [])
 
   const getMovies = async () => {
+    setLoading(true);
     try {
       await fetch(`${API_BASE}/movies`)
               .then(res => res.json())
