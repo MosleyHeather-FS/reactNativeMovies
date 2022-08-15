@@ -53,10 +53,11 @@ function Movie() {
     <div className="App">
       <header style={styles.page} className="App-header">
       <Link to="/">Home</Link>
+      <Link to="/favorites">Top Movie Picks</Link>
         <h3>{values && values.name}</h3>
         <p>{values && values.genre}</p>
         <p>{values && values.rating}</p>
-        <img src= {values && values.img}></img>
+        <img style={styles.img} src= {values && values.img}></img>
       </header>
     </div>
   );
@@ -69,5 +70,8 @@ const styles = {
     backgroundImage: `url(${cinema})`,
     backgroundSize: "100%",
     backgroundRepeat: "no-repeat",
+  },
+  img: {
+    width: '30%'
   }
 }
