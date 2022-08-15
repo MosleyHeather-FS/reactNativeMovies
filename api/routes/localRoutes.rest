@@ -2,7 +2,7 @@ GET http://localhost:8000/movies
 
 ###
 
-GET http://localhost:8000/movies/62f7a7e8a2c5d49d9ad02013
+GET http://localhost:8000/movies/62fa9661d5c991a78540264c
 
 ###
 
@@ -11,7 +11,8 @@ Content-Type: application/json
 
 {
     "name": "Deadpool",
-    "genre": "Comedy"
+    "genre": "Comedy",
+    "rating": "R"
 }
 
 ###
@@ -25,5 +26,6 @@ Content-Type: application/json
 
 {
     "name": "Deadpool 2",
-    "genre": "Comedy"
+    "genre": "Comedy",
+    "rating": "R"
 }

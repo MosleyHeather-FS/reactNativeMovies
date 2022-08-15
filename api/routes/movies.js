@@ -40,7 +40,8 @@ router.get('/:id', getMovie, async (req, res) => {
 router.post('/', async (req, res) => {
     const movie = new Movie({
         name: req.body.name,
-        genre: req.body.genre
+        genre: req.body.genre,
+        rating: req.body.rating
     })
     try {
         const newMovie = await movie.save();
@@ -57,6 +58,9 @@ router.patch('/:id', getMovie, async (req, res) => {
     }
     if(req.body.genre != null){
         res.movie.genre = req.body.genre
+    }
+    if(req.body.rating != null){
+        res.movie.rating = req.body.rating
     }
     try {
         const updatedMovie = await res.movie.save()
