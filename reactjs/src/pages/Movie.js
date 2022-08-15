@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import '../App.css';
 
 function Movie() {
-  const [movies, setMovies] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
   const [values, setValues] = useState({
@@ -12,7 +11,6 @@ function Movie() {
   })
 
   const { id } = useParams()
-  const navigate = useNavigate();
 
   const API_BASE = process.env.NODE_ENV === 'development' 
   ? `http://localhost:8000/api/v1` 
@@ -40,7 +38,8 @@ function Movie() {
                 setValues({
                     name: data.name,
                     genre: data.genre,
-                    rating: data.rating
+                    rating: data.rating,
+                    img: data.img
                 })
               })
     } catch(error) {
@@ -53,10 +52,10 @@ function Movie() {
     <div className="App">
       <header className="App-header">
       <Link to="/">Home</Link>
-        <h1>Movies:</h1>
-        <h5>{values && values.name}</h5>
+        <h3>{values && values.name}</h3>
         <p>{values && values.genre}</p>
         <p>{values && values.rating}</p>
+        <img src= {values && values.img}></img>
       </header>
     </div>
   );

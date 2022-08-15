@@ -48,16 +48,35 @@ function Home() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Movies:</h1>
-        <ul>
+        <h1>My Top Favorite Movies:</h1>
+        <ul style={styles.container}>
           {movies?.map((movie) => (
-            <Link to={`/movies/${movie._id}`}>{movie.name}</Link>
+            <Link to={`/movies/${movie._id}`}><img style={styles.img} src={movie.img}></img></Link>
           ))}
         </ul>
+        <p>Have some recommendations for me? Add them on this page:</p>
+        <Link style={styles.margin} to="/recomend">Your Recommendations</Link>
       </header>
     </div>
   );
 }
 
 export default Home;
+
+const styles = {
+  container: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexGrow: '1',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    gap: '30px'
+  },
+  margin: {
+    marginBottom: '100px'
+  },
+  img: {
+    width: '150px'
+  }
+}
 

@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 import Home from './pages/Home'
-import Dashboard from './pages/Dashboard'
+import Recomend from './pages/Recomend'
 import Movie from './pages/Movie'
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/movies/:id" exact element={<Movie />} />
-        <Route path="/dashboard" exact element={<Dashboard />} />
+        <Route path="/recomend" exact element={<Recomend />} />
         <Route path="/" exact element={<Home />} />
       </Routes>
     </Router>
