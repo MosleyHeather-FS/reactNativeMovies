@@ -13,7 +13,6 @@ function Recomend() {
   });
 
   const { id } = useParams()
-  const navigate = useNavigate();
 
   const API_BASE =
     process.env.NODE_ENV === "development"
@@ -48,19 +47,16 @@ function Recomend() {
     }
   };
 
-  const updateMovie = async () => {
+  const createMovie = async () => {
       try {
-          await fetch(`${API_BASE}/movies/${id}`, {
-              method: 'PATCH',
+          await fetch(`${API_BASE}/movies`, {
+              method: 'POST',
               headers: {
                   'Content-Type': 'application/json'
               },
               body: JSON.stringify(values)
           })
-                    .then(res => res.json())
-                    .then(data => {
-                      console.log({data})
-                    })
+                    .then(() => getMovies())
         } catch(error) {
           setError(error.message || "Unexpected Error")
         } finally {
@@ -70,7 +66,7 @@ function Recomend() {
 
   const handleSubmit = (event) => {
       event.preventDefault();
-      updateMovie();
+      createMovie();
   }
 
   const handleInputChanges = (event) => {
