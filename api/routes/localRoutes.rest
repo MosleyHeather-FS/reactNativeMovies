@@ -1,29 +1,33 @@
-GET http://localhost:8000/movies
+GET http://localhost:8000/api/v1/movies
 
 ###
 
-GET http://localhost:8000/movies/62f7a7e8a2c5d49d9ad02013
+GET http://localhost:8000/api/v1/movies/62fa9661d5c991a78540264c
 
 ###
 
-POST http://localhost:8000/movies
+POST http://localhost:8000/api/v1/movies
 Content-Type: application/json
 
 {
-    "name": "Deadpool",
-    "genre": "Comedy"
+    "name": "Morbius",
+    "genre": "Action/Adventure",
+    "rating": "PG-13",
+    "img": "https://www.sonypictures.com/sites/default/files/styles/max_560x840/public/title-key-art/morbius_onesheet_1400x2100_he.jpg?itok=-jQVkWIe"
 }
 
 ###
 
-DELETE http://localhost:8000/movies/62f94bbbfb9bc1ff778d5f83
+DELETE http://localhost:8000/api/v1/movies/62faa838135ca5b4d8ce83a3
 
 ###
 
-PATCH http://localhost:8000/movies/62f94bbbfb9bc1ff778d5f81
+PATCH http://localhost:8000/api/v1/movies/62f94bbbfb9bc1ff778d5f81
 Content-Type: application/json
 
 {
     "name": "Deadpool 2",
-    "genre": "Comedy"
+    "genre": "Comedy",
+    "rating": "R",
+    "img": "https://i.pinimg.com/736x/0c/9f/3b/0c9f3b26646ad58cb3b470e0e259f58f.jpg"
 }

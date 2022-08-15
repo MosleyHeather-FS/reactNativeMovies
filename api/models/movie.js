@@ -9,6 +9,15 @@ const movieSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    rating: {
+        type: String,
+        required: true
+    },
+    img: {
+        data: Buffer,
+        type: String,
+        required: true
+    },
     created_at: {
         type: Date,
         required: true,
