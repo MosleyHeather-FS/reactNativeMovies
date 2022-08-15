@@ -8,10 +8,7 @@ function Favorites() {
   const [movies, setMovies] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [values, setValues] = useState({
-    name: "",
-    class: "",
-  });
+
 
   const API_BASE =
     process.env.NODE_ENV === "development"
@@ -55,8 +52,6 @@ function Favorites() {
             <Link to={`/movies/${movie._id}`}><img style={styles.img} src={movie.img}></img></Link>
           ))}
         </ul>
-        <p>Have some recommendations for me? Add them on this page:</p>
-        <Link style={styles.margin} to="/recomend">Your Recommendations</Link>
       </header>
     </div>
   );
