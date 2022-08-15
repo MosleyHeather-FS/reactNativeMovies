@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from 'react-router-dom';
+import cinema from "../images/cinema.jpeg";
 import '../App.css';
 
 function Movie() {
@@ -50,7 +51,7 @@ function Movie() {
   }
   return (
     <div className="App">
-      <header className="App-header">
+      <header style={styles.page} className="App-header">
       <Link to="/">Home</Link>
         <h3>{values && values.name}</h3>
         <p>{values && values.genre}</p>
@@ -62,3 +63,11 @@ function Movie() {
 }
 
 export default Movie;
+
+const styles = {
+  page: {
+    backgroundImage: `url(${cinema})`,
+    backgroundSize: "100%",
+    backgroundRepeat: "no-repeat",
+  }
+}

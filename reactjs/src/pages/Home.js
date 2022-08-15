@@ -1,61 +1,25 @@
-import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import cinema from "../images/cinema.jpeg";
 
 import "../App.css";
 
 function Home() {
-  const [movies, setMovies] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [values, setValues] = useState({
-    name: "",
-    class: "",
-  });
-
-  const API_BASE =
-    process.env.NODE_ENV === "development"
-      ? `http://localhost:8000/api/v1`
-      : process.env.REACT_APP_BASE_URL;
-
-  useEffect(() => {
-    let ignore = false;
-
-    if (!ignore) {
-      getMovies();
-    }
-
-    return () => {
-      ignore = true;
-    };
-  }, []);
-
-  const getMovies = async () => {
-    setLoading(true);
-    try {
-      await fetch(`${API_BASE}/movies`)
-        .then((res) => res.json())
-        .then((data) => {
-          console.log({ data });
-          setMovies(data);
-        });
-    } catch (error) {
-      setError(error.message || "Unexpected Error");
-    } finally {
-      setLoading(false);
-    }
-  };
-  
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>My Top Favorite Movies:</h1>
-        <ul style={styles.container}>
-          {movies?.map((movie) => (
-            <Link to={`/movies/${movie._id}`}><img style={styles.img} src={movie.img}></img></Link>
-          ))}
-        </ul>
-        <p>Have some recommendations for me? Add them on this page:</p>
-        <Link style={styles.margin} to="/recomend">Your Recommendations</Link>
+      <header style={styles.page} className="App-header">
+        <h1>Welcome to my Page!</h1>
+        <div style={styles.container}>
+          <p>
+            Love movies like me? Awesome! I have a unique taste in movies.
+            Fantasy, Romance, Mystery, etc. You name I just about love them all.
+          </p>
+          <p>
+            So choosing my favorites is the worst, but I did it! It was
+            exhausting, but I finally figured out the best of the best movies
+            for you. To check them on my top movie picks page link below:
+          </p>
+        </div>
+        <Link to="/favorites">My Top Movie Picks</Link>
       </header>
     </div>
   );
@@ -65,18 +29,11 @@ export default Home;
 
 const styles = {
   container: {
-    display: 'flex',
-    flexDirection: 'row',
-    flexGrow: '1',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    gap: '30px'
+    margin: "50px 200px",
   },
-  margin: {
-    marginBottom: '100px'
+  page: {
+    backgroundImage: `url(${cinema})`,
+    backgroundSize: "100%",
+    backgroundRepeat: "no-repeat",
   },
-  img: {
-    width: '150px'
-  }
-}
-
+};
