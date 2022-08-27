@@ -9,7 +9,7 @@ const jwtOptions = {
     jwtFromRequest: ExtractJwt.fromHeader('authorization')
 }
 
-const JwtStrategy = new JwtStrategy(jwtOptions, function(payload, done){
+const jwtStrategy = new JwtStrategy(jwtOptions, function(payload, done){
     User.findById(payload.sub, function(error, user){
         if(error){return done(error, false)}
         if(user){
@@ -20,4 +20,4 @@ const JwtStrategy = new JwtStrategy(jwtOptions, function(payload, done){
     })
 })
 
-passport.use(JwtStrategy)
+passport.use(jwtStrategy)
