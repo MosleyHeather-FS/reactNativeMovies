@@ -8,7 +8,7 @@ function Movie() {
   const [error, setError] = useState(null)
   const [values, setValues] = useState({
     name: '',
-    class: ''
+    genre: ''
   })
 
   const { id } = useParams()
